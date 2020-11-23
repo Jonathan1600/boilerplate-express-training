@@ -8,7 +8,7 @@ var app = express();
   });
 
   app.use(
-    bodyParser.urlencoded({extended: true})
+    bodyParser.urlencoded({extended: false})
   );
 
   app.get("/", function(req, res) {
@@ -40,7 +40,9 @@ var app = express();
     res.json({name: `${req.query.first} ${req.query.last}`})
     });
 
-
+  app.post("/name", (req, res) => {
+    res.json({name: `${req.body.first} ${req.body.last}`})
+  });
 
 
 
